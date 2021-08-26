@@ -1,0 +1,38 @@
+{% extends 'base.html'%}
+{%block navbar %}
+{% include 'navbar.html' %}
+{% endblock %}
+{% block content %}
+{% for quote in getquotes %}
+<div class="container-fluid" style="font-size: 20px; padding-top: 40px;">
+    <div>
+        <div class="overlay">
+            <marquee behavior="scroll" width="1000px" direction="left"><h1 class="text-center text-bold" style="color: #fd8700; background-color: black;animation: 3s 1;">WELCOME TO MY BLOG</h1></marquee>
+        </div>
+    </div>
+
+    <div>
+        <div class="card card-image">
+            <div class="text-white text-center" style="background-color: #fd8700;">
+                <div class="py-5">
+
+                    <h5 class="h5" style="color: brown;"></i> This is a journey of once self *Blogging*</h5>
+                    <h2 class="card-title" style="color: black;">{{quote.author}}</h2>
+                    <p class="mb-4 pb-2 px-md-5 mx-md-5">{{quote.quote}}</p>
+                    <a class="btn white-gradient" aria-haspopup="true" aria-expanded="false"
+                        href="{{url_for('main.allBlogs')}}"><b><i style="color: blue;">See my blog</i></b></a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="page-footer font-small dark black" style="background-color: black;">
+
+        <div class="footer-copyright text-center py-3">© 2021 Copyright|
+            <a href="#"> My-Blog</a>
+        </div>
+
+    </footer>
+</div>
+{% endfor %}
+{% endblock %}
